@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ Component } from 'react';
+import Dado from "./Dado";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Aplicacion extends Component{
+  constructor(){
+    super();
+    this.state = {
+      numero : 1
+    }
+  }
+  tirar = ()=>{
+    this.setState({numero : 1 + Math.floor(Math.random()*6)})
+   
+  }
+render(){
+    return(
+      <>
+      <Dado numero={this.state.numero} />
+      <a href="#" onClick={
+        evento => {
+          evento.preventDefault();
+          this.tirar();
+        }
+      }>Tirar!</a>
+      </>
+    )
+  }
 }
+ 
 
-export default App;
+  
+
+
+
+
+
+
+
+
+
+export default Aplicacion;
+
+
+//girar dado
+//funcionalidad al boton

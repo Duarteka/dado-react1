@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body .contenedor{
+    min-height: 100vh;
+    background-image: linear-gradient(to top,#bbb,#eee);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dado{
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    background-color: azure;
+    display: grid;       /* cuadricula con una fila, los elementos que estan dentro hace scratch, el circulo pasa a ser un item de grid*/
+    grid-template-columns: repeat(3,auto);/*construye tres columnas de ancho automatico*/
+    grid-template-rows:repeat(3,auto);
+    grid-gap: 10px;      /*grid collumn y grid row puede decir en que fila o columna esta un elemento*/
+}
+.tirando{
+    animation: tirar 0.4s;
+}
+
+.circulo{
+    background-color: #000;
+    border-radius: 50%;
+
+}
+
+.circulo:last-child{
+    grid-column:  3 / 4;
+    grid-row:  3 / 4;
+}
+.uno .circulo, .tres .circulo:nth-child(2), .cinco .circulo:nth-child(3){
+    grid-column: 2 / 3;
+    grid-row:  2 / 3;
+
+}
+.cuatro .circulo:nth-child(2), .cinco .circulo:nth-child(2), .seis .circulo:nth-child(2),.seis .circulo:nth-child(4){
+    grid-column: 3 / 4;
+}
+.cuatro .circulo:nth-child(3), .cinco .circulo:nth-child(4), .seis .circulo:nth-child(5){
+    grid-column:  1 / 2;
+    grid-row: 3 / 4;
+}
+a{
+    margin-top: 30px;
+    color: #333;
+    font-size: 1.5em;
+}
+@keyframes tirar{
+    0%{
+        transform: scale(1) rotate(0);
+    }
+    50%{
+        transform: scale(0.2) rotate(720deg);
+    }
+    100%{
+        transform: scale(1) rotate(0);
+    }
+}
